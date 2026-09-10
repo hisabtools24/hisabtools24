@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
@@ -19,6 +20,46 @@
 
   <url>
     <loc>https://hisabtools24.github.io/hisabtools24/disclaimer.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/sip-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/emi-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/percentage-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/discount-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/gst-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/age-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/bmi-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/simple-interest-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/compound-interest-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://hisabtools24.github.io/hisabtools24/unit-converter.html</loc>
   </url>
 
 </urlset>
