@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Compound Interest Calculator - Calculate CI | HisabTools24</title>
+  <meta name="description" content="Free Compound Interest Calculator to calculate compound interest, total interest and final amount.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .result p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .home {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Compound Interest Calculator</h1>
+  <p>Calculate compound interest and final amount easily</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free Compound Interest Calculator</h2>
+
+    <label for="principal">Principal Amount (₹)</label>
+    <input type="number" id="principal" value="10000" min="0" step="0.01">
+
+    <label for="rate">Annual Interest Rate (%)</label>
+    <input type="number" id="rate" value="8" min="0" step="0.01">
+
+    <label for="time">Time (Years)</label>
+    <input type="number" id="time" value="5" min="0" step="0.1">
+
+    <label for="frequency">Compounding Frequency</label>
+    <select id="frequency">
+      <option value="1">Yearly</option>
+      <option value="2">Half-Yearly</option>
+      <option value="4">Quarterly</option>
+      <option value="12" selected>Monthly</option>
+    </select>
+
+    <button onclick="calculateCompoundInterest()">Calculate Interest</button>
+
+    <div class="result" id="result">
+      Enter your values and click Calculate.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>What is Compound Interest?</h2>
+
+    <p>
+      Compound Interest is interest calculated on the original
+      principal amount plus the interest accumulated over previous
+      periods.
+    </p>
+
+    <h2>Compound Interest Formula</h2>
+
+    <p>
+      <strong>A = P × (1 + r/n)ⁿᵗ</strong>
+    </p>
+
+    <p>
+      Here, P is the principal amount, r is the annual interest rate,
+      n is the number of times interest is compounded per year,
+      and t is the time in years.
+    </p>
+
+    <h2>Example</h2>
+
+    <p>
+      If ₹10,000 is invested at an annual rate of 8% for 5 years,
+      the final amount depends on how frequently the interest is
+      compounded.
+    </p>
+
+    <h2>Important Note</h2>
+
+    <p>
+      This calculator provides mathematical estimates only.
+      Actual returns or interest may differ according to the terms
+      of the bank, lender or investment product.
+    </p>
+
+  </div>
+
+  <div class="home">
+    <a href="index.html">← Back to HisabTools24 Home</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 HisabTools24 • Free Online Calculators
+</footer>
+
+<script>
+function calculateCompoundInterest() {
+
+  let principal = Number(document.getElementById("principal").value);
+  let rate = Number(document.getElementById("rate").value);
+  let time = Number(document.getElementById("time").value);
+  let frequency = Number(document.getElementById("frequency").value);
+
+  if (principal < 0 || rate < 0 || time < 0) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter valid values.</p>";
+    return;
+  }
+
+  let r = rate / 100;
+
+  let amount = principal *
+    Math.pow((1 + r / frequency), frequency * time);
+
+  let interest = amount - principal;
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>Principal Amount:</strong> ₹${principal.toFixed(2)}</p>
+    <p><strong>Compound Interest:</strong> ₹${interest.toFixed(2)}</p>
+    <p><strong>Final Amount:</strong> ₹${amount.toFixed(2)}</p>
+  `;
+}
+
+calculateCompoundInterest();
+</script>
+
+</body>
+</html>
