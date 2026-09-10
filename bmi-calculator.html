@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BMI Calculator - Calculate Body Mass Index | HisabTools24</title>
+  <meta name="description" content="Free BMI Calculator to calculate Body Mass Index using your height and weight.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .result p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .home {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>BMI Calculator</h1>
+  <p>Calculate your Body Mass Index easily</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free BMI Calculator</h2>
+
+    <label for="weight">Weight (kg)</label>
+    <input type="number" id="weight" value="65" min="1" step="0.1">
+
+    <label for="height">Height (cm)</label>
+    <input type="number" id="height" value="170" min="1" step="0.1">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="result" id="result">
+      Enter your height and weight, then click Calculate.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>What is BMI?</h2>
+
+    <p>
+      BMI stands for Body Mass Index. It is a simple measurement
+      calculated using a person's weight and height.
+    </p>
+
+    <h2>BMI Formula</h2>
+
+    <p>
+      <strong>BMI = Weight (kg) ÷ Height² (metres)</strong>
+    </p>
+
+    <h2>General BMI Categories for Adults</h2>
+
+    <p>
+      Below 18.5: Underweight
+    </p>
+
+    <p>
+      18.5 – 24.9: Healthy weight
+    </p>
+
+    <p>
+      25 – 29.9: Overweight
+    </p>
+
+    <p>
+      30 or above: Obesity
+    </p>
+
+    <h2>Important Note</h2>
+
+    <p>
+      BMI is only a general screening measure and does not directly
+      measure body fat or overall health. It may not be appropriate
+      for every person. Consult a qualified healthcare professional
+      for individual health advice.
+    </p>
+
+  </div>
+
+  <div class="home">
+    <a href="index.html">← Back to HisabTools24 Home</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 HisabTools24 • Free Online Calculators
+</footer>
+
+<script>
+function calculateBMI() {
+
+  let weight = Number(document.getElementById("weight").value);
+  let heightCm = Number(document.getElementById("height").value);
+
+  if (weight <= 0 || heightCm <= 0) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter valid height and weight.</p>";
+    return;
+  }
+
+  let heightM = heightCm / 100;
+  let bmi = weight / (heightM * heightM);
+
+  let category;
+
+  if (bmi < 18.5) {
+    category = "Underweight";
+  } else if (bmi < 25) {
+    category = "Healthy weight";
+  } else if (bmi < 30) {
+    category = "Overweight";
+  } else {
+    category = "Obesity";
+  }
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>Your BMI:</strong> ${bmi.toFixed(1)}</p>
+    <p><strong>Category:</strong> ${category}</p>
+  `;
+}
+
+calculateBMI();
+</script>
+
+</body>
+</html>
