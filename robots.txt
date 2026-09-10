@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hisabtools24.github.io/hisabtools24/sitemap.xml
