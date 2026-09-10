@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GST Calculator - Calculate GST Amount | HisabTools24</title>
+  <meta name="description" content="Free GST Calculator to calculate GST amount, CGST, SGST and final price quickly and easily.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .result p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .home {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>GST Calculator</h1>
+  <p>Calculate GST, CGST, SGST and final price</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free GST Calculator</h2>
+
+    <label for="amount">Amount (₹)</label>
+    <input type="number" id="amount" value="1000" min="0">
+
+    <label for="gst">GST Rate (%)</label>
+    <select id="gst">
+      <option value="5">5%</option>
+      <option value="12">12%</option>
+      <option value="18" selected>18%</option>
+      <option value="28">28%</option>
+    </select>
+
+    <button onclick="calculateGST()">Calculate GST</button>
+
+    <div class="result" id="result">
+      Enter the amount and GST rate, then click Calculate.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>What is GST?</h2>
+
+    <p>
+      GST stands for Goods and Services Tax. It is an indirect tax
+      applied to the supply of many goods and services in India.
+    </p>
+
+    <h2>How is GST calculated?</h2>
+
+    <p>
+      <strong>GST Amount = Original Amount × GST Rate ÷ 100</strong>
+    </p>
+
+    <p>
+      <strong>Final Amount = Original Amount + GST Amount</strong>
+    </p>
+
+    <h2>CGST and SGST</h2>
+
+    <p>
+      For an intra-state transaction, GST may be divided into CGST
+      and SGST. For example, an 18% GST rate may be divided into
+      9% CGST and 9% SGST.
+    </p>
+
+    <h2>Important Note</h2>
+
+    <p>
+      This calculator is for general informational purposes. Actual
+      tax treatment can depend on the transaction, applicable rules,
+      exemptions and other factors.
+    </p>
+
+  </div>
+
+  <div class="home">
+    <a href="index.html">← Back to HisabTools24 Home</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 HisabTools24 • Free Online Calculators
+</footer>
+
+<script>
+function calculateGST() {
+
+  let amount = Number(document.getElementById("amount").value);
+  let gstRate = Number(document.getElementById("gst").value);
+
+  if (amount < 0) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter a valid amount.</p>";
+    return;
+  }
+
+  let gstAmount = amount * gstRate / 100;
+  let finalAmount = amount + gstAmount;
+  let halfGST = gstAmount / 2;
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>Original Amount:</strong> ₹${amount.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+
+    <p><strong>GST Amount:</strong> ₹${gstAmount.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+
+    <p><strong>CGST:</strong> ₹${halfGST.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+
+    <p><strong>SGST:</strong> ₹${halfGST.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+
+    <p><strong>Final Amount:</strong> ₹${finalAmount.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+  `;
+}
+
+calculateGST();
+</script>
+
+</body>
+</html>
