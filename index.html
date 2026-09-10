@@ -2,589 +2,366 @@
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="wC5WXZOde8VDRQl2z7MZlSkSbbpa3wL3PBvaofaKU-w" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="HisabTools24 - Free online SIP, EMI, GST, percentage, age, discount, BMI, interest and unit conversion calculators.">
+  <meta name="description" content="HisabTools24 - Free online SIP, EMI, GST, percentage, age, discount, BMI, interest and unit conversion calculators.">
 
-<title>HisabTools24 - Free Online Calculators</title>
+  <title>HisabTools24 - Free Online Calculators</title>
 
-<style>
-*{
-  box-sizing:border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f5f7fb;
-  color:#172033;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
 
-header{
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  color:white;
-  padding:30px 15px;
-  text-align:center;
-}
+    header {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 45px 15px;
+      text-align: center;
+    }
 
-header h1{
-  margin:0;
-  font-size:35px;
-}
+    header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
 
-header p{
-  margin:8px 0 0;
-  font-size:16px;
-}
+    header p {
+      margin: 10px 0 0;
+      font-size: 17px;
+    }
 
-.container{
-  max-width:1050px;
-  margin:25px auto;
-  padding:0 15px;
-}
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:18px;
-}
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-.card{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
+    .intro h2 {
+      margin-bottom: 8px;
+    }
 
-.card h2{
-  margin-top:0;
-  font-size:20px;
-}
+    .intro p {
+      color: #667085;
+    }
 
-label{
-  display:block;
-  font-weight:bold;
-  font-size:14px;
-  margin:12px 0 5px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-input,select{
-  width:100%;
-  padding:12px;
-  border:1px solid #d5d9e5;
-  border-radius:9px;
-  font-size:16px;
-}
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: transform .2s, box-shadow .2s;
+    }
 
-button{
-  width:100%;
-  margin-top:15px;
-  padding:12px;
-  border:0;
-  border-radius:9px;
-  background:#4f46e5;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-}
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,.12);
+    }
 
-.result{
-  margin-top:14px;
-  padding:13px;
-  background:#eef2ff;
-  border-radius:9px;
-  line-height:1.6;
-  font-weight:bold;
-}
+    .card h2 {
+      margin-top: 0;
+      font-size: 21px;
+    }
 
-.about{
-  background:white;
-  margin-top:20px;
-  padding:22px;
-  border-radius:16px;
-}
+    .card p {
+      color: #667085;
+      line-height: 1.6;
+    }
 
-footer{
-  text-align:center;
-  padding:25px;
-  color:#667085;
-}
-</style>
+    .button {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 18px;
+      padding: 12px;
+      border-radius: 9px;
+      background: #4f46e5;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #4338ca;
+    }
+
+    .about {
+      background: white;
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+    }
+
+    .about h2 {
+      margin-top: 0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .feature {
+      background: #f8f9ff;
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #667085;
+      margin-top: 25px;
+    }
+
+    footer a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      header {
+        padding: 35px 15px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<h1>HisabTools24</h1>
-<p>Free Online Calculators & Useful Tools</p>
+  <h1>HisabTools24</h1>
+  <p>Free Online Calculators & Useful Tools</p>
 </header>
 
 <div class="container">
 
-<div class="grid">
+  <div class="intro">
+    <h2>Free Online Calculators</h2>
+    <p>
+      Simple, fast and easy-to-use calculators for everyday needs.
+    </p>
+  </div>
 
-<!-- SIP -->
-<div class="card">
-<h2>📈 SIP Calculator</h2>
+  <div class="grid">
 
-<label>Monthly Investment (₹)</label>
-<input id="sipP" type="number" value="1000">
+    <!-- SIP -->
+    <div class="card">
+      <h2>📈 SIP Calculator</h2>
+      <p>
+        Calculate your monthly SIP investment, estimated returns and
+        final investment value.
+      </p>
+      <a class="button" href="sip-calculator.html">
+        Open SIP Calculator
+      </a>
+    </div>
 
-<label>Expected Annual Return (%)</label>
-<input id="sipR" type="number" value="12">
+    <!-- EMI -->
+    <div class="card">
+      <h2>🏠 EMI Calculator</h2>
+      <p>
+        Calculate monthly EMI, total interest and total loan payment
+        for your loan.
+      </p>
+      <a class="button" href="emi-calculator.html">
+        Open EMI Calculator
+      </a>
+    </div>
 
-<label>Investment Period (Years)</label>
-<input id="sipY" type="number" value="10">
+    <!-- Percentage -->
+    <div class="card">
+      <h2>🧮 Percentage Calculator</h2>
+      <p>
+        Quickly calculate percentages for maths, shopping, exams and
+        everyday calculations.
+      </p>
+      <a class="button" href="percentage-calculator.html">
+        Open Percentage Calculator
+      </a>
+    </div>
 
-<button onclick="sip()">Calculate SIP</button>
+    <!-- Discount -->
+    <div class="card">
+      <h2>🎁 Discount Calculator</h2>
+      <p>
+        Calculate discount amount, savings and final price after
+        applying a discount.
+      </p>
+      <a class="button" href="discount-calculator.html">
+        Open Discount Calculator
+      </a>
+    </div>
 
-<div id="sipOut" class="result">
-Enter values and calculate.
-</div>
-</div>
+    <!-- GST -->
+    <div class="card">
+      <h2>🧾 GST Calculator</h2>
+      <p>
+        Calculate GST amount, CGST, SGST and final amount quickly.
+      </p>
+      <a class="button" href="gst-calculator.html">
+        Open GST Calculator
+      </a>
+    </div>
 
+    <!-- AGE -->
+    <div class="card">
+      <h2>🎂 Age Calculator</h2>
+      <p>
+        Calculate your exact age using your date of birth.
+      </p>
+      <a class="button" href="age-calculator.html">
+        Open Age Calculator
+      </a>
+    </div>
 
-<!-- EMI -->
-<div class="card">
-<h2>🏠 EMI Calculator</h2>
+    <!-- BMI -->
+    <div class="card">
+      <h2>⚖️ BMI Calculator</h2>
+      <p>
+        Calculate Body Mass Index using your height and weight.
+      </p>
+      <a class="button" href="bmi-calculator.html">
+        Open BMI Calculator
+      </a>
+    </div>
 
-<label>Loan Amount (₹)</label>
-<input id="emiP" type="number" value="500000">
+    <!-- SIMPLE INTEREST -->
+    <div class="card">
+      <h2>💰 Simple Interest Calculator</h2>
+      <p>
+        Calculate simple interest and the final amount using
+        principal, rate and time.
+      </p>
+      <a class="button" href="simple-interest-calculator.html">
+        Open Simple Interest
+      </a>
+    </div>
 
-<label>Annual Interest (%)</label>
-<input id="emiR" type="number" value="8">
+    <!-- COMPOUND INTEREST -->
+    <div class="card">
+      <h2>💹 Compound Interest Calculator</h2>
+      <p>
+        Calculate compound interest and final amount with different
+        compounding frequencies.
+      </p>
+      <a class="button" href="compound-interest-calculator.html">
+        Open Compound Interest
+      </a>
+    </div>
 
-<label>Loan Tenure (Years)</label>
-<input id="emiY" type="number" value="5">
+    <!-- UNIT CONVERTER -->
+    <div class="card">
+      <h2>📏 Unit Converter</h2>
+      <p>
+        Convert length, weight and temperature between different
+        units quickly and easily.
+      </p>
+      <a class="button" href="unit-converter.html">
+        Open Unit Converter
+      </a>
+    </div>
 
-<button onclick="emi()">Calculate EMI</button>
+  </div>
 
-<div id="emiOut" class="result">
-Enter values and calculate.
-</div>
-</div>
+  <div class="about">
 
+    <h2>About HisabTools24</h2>
 
-<!-- Percentage -->
-<div class="card">
-<h2>🧮 Percentage Calculator</h2>
+    <p>
+      HisabTools24 provides simple and free online calculators for
+      everyday finance, maths, health and unit conversion needs.
+    </p>
 
-<label>Value</label>
-<input id="perA" type="number" value="500">
+    <p>
+      Our goal is to make everyday calculations quick, simple and
+      accessible on mobile phones, tablets and computers.
+    </p>
 
-<label>Percentage (%)</label>
-<input id="perB" type="number" value="20">
+    <div class="features">
 
-<button onclick="percent()">Calculate</button>
+      <div class="feature">
+        <strong>✓ Free to Use</strong>
+        No registration required.
+      </div>
 
-<div id="perOut" class="result">
-Enter values and calculate.
-</div>
-</div>
+      <div class="feature">
+        <strong>✓ Mobile Friendly</strong>
+        Works smoothly on smartphones and tablets.
+      </div>
 
+      <div class="feature">
+        <strong>✓ Easy Calculations</strong>
+        Simple tools with easy-to-understand results.
+      </div>
 
-<!-- Discount -->
-<div class="card">
-<h2>🎁 Discount Calculator</h2>
+      <div class="feature">
+        <strong>✓ Multiple Tools</strong>
+        Finance, maths, health and conversion tools in one place.
+      </div>
 
-<label>Original Price (₹)</label>
-<input id="disP" type="number" value="1000">
+    </div>
 
-<label>Discount (%)</label>
-<input id="disD" type="number" value="15">
+    <p>
+      Results are for general informational purposes only. Always
+      verify important financial or medical decisions with a
+      qualified professional.
+    </p>
 
-<button onclick="discount()">Calculate</button>
-
-<div id="disOut" class="result">
-Enter values and calculate.
-</div>
-</div>
-
-
-<!-- GST -->
-<div class="card">
-<h2>🧾 GST Calculator</h2>
-
-<label>Amount (₹)</label>
-<input id="gstA" type="number" value="1000">
-
-<label>GST Rate (%)</label>
-<input id="gstR" type="number" value="18">
-
-<button onclick="gst()">Calculate GST</button>
-
-<div id="gstOut" class="result">
-Enter values and calculate.
-</div>
-</div>
-
-
-<!-- AGE -->
-<div class="card">
-<h2>🎂 Age Calculator</h2>
-
-<label>Date of Birth</label>
-<input id="dob" type="date">
-
-<button onclick="age()">Calculate Age</button>
-
-<div id="ageOut" class="result">
-Select your date of birth.
-</div>
-</div>
-
-
-<!-- BMI -->
-<div class="card">
-<h2>⚖️ BMI Calculator</h2>
-
-<label>Weight (kg)</label>
-<input id="bmiW" type="number" value="65">
-
-<label>Height (cm)</label>
-<input id="bmiH" type="number" value="170">
-
-<button onclick="bmi()">Calculate BMI</button>
-
-<div id="bmiOut" class="result">
-Enter values and calculate.
-</div>
-</div>
-
-
-<!-- SIMPLE INTEREST -->
-<div class="card">
-<h2>💰 Simple Interest</h2>
-
-<label>Principal (₹)</label>
-<input id="siP" type="number" value="10000">
-
-<label>Annual Rate (%)</label>
-<input id="siR" type="number" value="8">
-
-<label>Time (Years)</label>
-<input id="siT" type="number" value="2">
-
-<button onclick="simpleInterest()">Calculate</button>
-
-<div id="siOut" class="result">
-Enter values and calculate.
-</div>
-</div>
-
-
-<!-- COMPOUND -->
-<div class="card">
-<h2>💹 Compound Interest</h2>
-
-<label>Principal (₹)</label>
-<input id="ciP" type="number" value="10000">
-
-<label>Annual Rate (%)</label>
-<input id="ciR" type="number" value="8">
-
-<label>Time (Years)</label>
-<input id="ciT" type="number" value="2">
-
-<button onclick="compound()">Calculate</button>
-
-<div id="ciOut" class="result">
-Enter values and calculate.
-</div>
-</div>
-
-
-<!-- UNIT -->
-<div class="card">
-<h2>📏 Unit Converter</h2>
-
-<label>Value</label>
-<input id="uV" type="number" value="1">
-
-<label>Conversion</label>
-
-<select id="uType">
-<option value="kmmi">Kilometres → Miles</option>
-<option value="mft">Metres → Feet</option>
-<option value="kgp">Kilograms → Pounds</option>
-<option value="cft">Celsius → Fahrenheit</option>
-</select>
-
-<button onclick="convert()">Convert</button>
-
-<div id="uOut" class="result">
-Enter a value and convert.
-</div>
-</div>
+  </div>
 
 </div>
-
-
-<div class="about">
-
-<h2>About HisabTools24</h2>
-
-<p>
-HisabTools24 provides simple and free online calculators for everyday finance, maths, health and conversion needs.
-</p>
-
-<p>
-Results are for general information only. Please verify important financial or medical decisions with a qualified professional.
-</p>
-
-</div>
-
-</div>
-
 
 <footer>
-© 2026 HisabTools24 • Free Online Tools<br><br>
-<a href="about.html">About Us</a> |
-<a href="contact.html">Contact Us</a> |
-<a href="privacy.html">Privacy Policy</a> |
-<a href="disclaimer.html">Disclaimer</a>
+
+  © 2026 HisabTools24 • Free Online Tools
+
+  <br><br>
+
+  <a href="about.html">About Us</a>
+  |
+  <a href="contact.html">Contact Us</a>
+  |
+  <a href="privacy.html">Privacy Policy</a>
+  |
+  <a href="disclaimer.html">Disclaimer</a>
+
 </footer>
-
-
-<script>
-
-function num(id){
-return Number(document.getElementById(id).value)||0;
-}
-
-function money(value){
-return "₹"+value.toLocaleString("en-IN",{
-maximumFractionDigits:2
-});
-}
-
-
-/* SIP */
-
-function sip(){
-
-let p=num("sipP");
-let r=num("sipR")/1200;
-let y=num("sipY")*12;
-
-let total;
-
-if(r){
-total=p*((Math.pow(1+r,y)-1)/r)*(1+r);
-}else{
-total=p*y;
-}
-
-let invested=p*y;
-
-document.getElementById("sipOut").innerHTML=
-"Invested: "+money(invested)+
-"<br>Estimated Value: "+money(total)+
-"<br>Estimated Gain: "+money(total-invested);
-
-}
-
-
-/* EMI */
-
-function emi(){
-
-let p=num("emiP");
-let r=num("emiR")/1200;
-let m=num("emiY")*12;
-
-let e;
-
-if(r){
-e=p*r*Math.pow(1+r,m)/
-(Math.pow(1+r,m)-1);
-}else{
-e=p/m;
-}
-
-document.getElementById("emiOut").innerHTML=
-"Monthly EMI: "+money(e)+
-"<br>Total Payment: "+money(e*m)+
-"<br>Total Interest: "+money(e*m-p);
-
-}
-
-
-/* Percentage */
-
-function percent(){
-
-let a=num("perA");
-let b=num("perB");
-
-document.getElementById("perOut").textContent=
-b+"% of "+a+" = "+(a*b/100);
-
-}
-
-
-/* Discount */
-
-function discount(){
-
-let p=num("disP");
-let d=num("disD");
-
-let save=p*d/100;
-let finalPrice=p-save;
-
-document.getElementById("disOut").innerHTML=
-"Discount: "+money(save)+
-"<br>Final Price: "+money(finalPrice);
-
-}
-
-
-/* GST */
-
-function gst(){
-
-let amount=num("gstA");
-let rate=num("gstR");
-
-let tax=amount*rate/100;
-
-document.getElementById("gstOut").innerHTML=
-"GST: "+money(tax)+
-"<br>Total Amount: "+money(amount+tax);
-
-}
-
-
-/* AGE */
-
-function age(){
-
-let dob=new Date(document.getElementById("dob").value);
-
-if(isNaN(dob)){
-document.getElementById("ageOut").textContent=
-"Please select your date of birth.";
-return;
-}
-
-let today=new Date();
-
-let years=today.getFullYear()-dob.getFullYear();
-
-let month=today.getMonth()-dob.getMonth();
-
-if(
-month<0 ||
-(month===0 && today.getDate()<dob.getDate())
-){
-years--;
-}
-
-document.getElementById("ageOut").textContent=
-"Your age is approximately "+years+" years.";
-
-}
-
-
-/* BMI */
-
-function bmi(){
-
-let weight=num("bmiW");
-let height=num("bmiH")/100;
-
-if(!height){
-return;
-}
-
-let value=weight/(height*height);
-
-let category;
-
-if(value<18.5){
-category="Underweight";
-}
-else if(value<25){
-category="Normal range";
-}
-else if(value<30){
-category="Overweight";
-}
-else{
-category="Obesity";
-}
-
-document.getElementById("bmiOut").innerHTML=
-"BMI: "+value.toFixed(1)+
-"<br>Category: "+category;
-
-}
-
-
-/* SIMPLE INTEREST */
-
-function simpleInterest(){
-
-let p=num("siP");
-let r=num("siR");
-let t=num("siT");
-
-let interest=p*r*t/100;
-
-document.getElementById("siOut").innerHTML=
-"Interest: "+money(interest)+
-"<br>Total Amount: "+money(p+interest);
-
-}
-
-
-/* COMPOUND INTEREST */
-
-function compound(){
-
-let p=num("ciP");
-let r=num("ciR");
-let t=num("ciT");
-
-let amount=p*Math.pow(1+r/100,t);
-
-document.getElementById("ciOut").innerHTML=
-"Interest: "+money(amount-p)+
-"<br>Total Amount: "+money(amount);
-
-}
-
-
-/* UNIT CONVERTER */
-
-function convert(){
-
-let value=num("uV");
-let type=document.getElementById("uType").value;
-
-let result;
-
-if(type==="kmmi"){
-result=value*0.621371;
-}
-else if(type==="mft"){
-result=value*3.28084;
-}
-else if(type==="kgp"){
-result=value*2.20462;
-}
-else{
-result=value*9/5+32;
-}
-
-document.getElementById("uOut").textContent=
-"Result: "+result.toFixed(4);
-
-}
-
-</script>
 
 </body>
 </html>
