@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EMI Calculator - Calculate Loan EMI | HisabTools24</title>
+  <meta name="description" content="Free EMI Calculator to calculate monthly loan EMI, total interest and total repayment for home, personal and other loans.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .result p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .home {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>EMI Calculator</h1>
+  <p>Calculate your monthly loan EMI easily</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free EMI Calculator</h2>
+
+    <label for="loan">Loan Amount (₹)</label>
+    <input type="number" id="loan" value="500000" min="1">
+
+    <label for="rate">Annual Interest Rate (%)</label>
+    <input type="number" id="rate" value="10" min="0" step="0.1">
+
+    <label for="years">Loan Tenure (Years)</label>
+    <input type="number" id="years" value="5" min="1">
+
+    <button onclick="calculateEMI()">Calculate EMI</button>
+
+    <div class="result" id="result">
+      Enter your loan details and click Calculate.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>What is EMI?</h2>
+
+    <p>
+      EMI stands for Equated Monthly Instalment. It is the fixed
+      amount generally paid every month towards repayment of a loan.
+      An EMI usually consists of both principal and interest.
+    </p>
+
+    <h2>How is EMI calculated?</h2>
+
+    <p>
+      EMI depends mainly on the loan amount, interest rate and loan
+      tenure. A longer tenure can reduce the monthly EMI but may
+      increase the total interest paid over the loan period.
+    </p>
+
+    <h2>Where can you use this calculator?</h2>
+
+    <p>
+      You can use this calculator for estimating EMI for personal
+      loans, home loans, car loans and other loans.
+    </p>
+
+    <h2>Important Note</h2>
+
+    <p>
+      The result is an estimate for informational purposes only.
+      Actual EMI, interest and repayment may vary depending on the
+      lender's terms, fees and applicable charges.
+    </p>
+
+  </div>
+
+  <div class="home">
+    <a href="index.html">← Back to HisabTools24 Home</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 HisabTools24 • Free Online Calculators
+</footer>
+
+<script>
+function calculateEMI() {
+
+  let loan = Number(document.getElementById("loan").value);
+  let annualRate = Number(document.getElementById("rate").value);
+  let years = Number(document.getElementById("years").value);
+
+  if (loan <= 0 || annualRate < 0 || years <= 0) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter valid values.</p>";
+    return;
+  }
+
+  let months = years * 12;
+  let monthlyRate = annualRate / 12 / 100;
+
+  let emi;
+
+  if (monthlyRate === 0) {
+    emi = loan / months;
+  } else {
+    emi =
+      loan *
+      monthlyRate *
+      Math.pow(1 + monthlyRate, months) /
+      (Math.pow(1 + monthlyRate, months) - 1);
+  }
+
+  let totalPayment = emi * months;
+  let totalInterest = totalPayment - loan;
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>Monthly EMI:</strong> ₹${emi.toLocaleString("en-IN", {maximumFractionDigits: 0})}</p>
+
+    <p><strong>Total Interest:</strong> ₹${totalInterest.toLocaleString("en-IN", {maximumFractionDigits: 0})}</p>
+
+    <p><strong>Total Payment:</strong> ₹${totalPayment.toLocaleString("en-IN", {maximumFractionDigits: 0})}</p>
+  `;
+}
+
+calculateEMI();
+</script>
+
+</body>
+</html>
