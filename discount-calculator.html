@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Discount Calculator - Calculate Sale Price | HisabTools24</title>
+  <meta name="description" content="Free Discount Calculator to calculate discount amount, final sale price and savings quickly and easily.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .result p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .home {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Discount Calculator</h1>
+  <p>Calculate discount and final price easily</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free Discount Calculator</h2>
+
+    <label for="price">Original Price (₹)</label>
+    <input type="number" id="price" value="1000" min="0">
+
+    <label for="discount">Discount (%)</label>
+    <input type="number" id="discount" value="20" min="0" max="100" step="0.1">
+
+    <button onclick="calculateDiscount()">Calculate Discount</button>
+
+    <div class="result" id="result">
+      Enter the price and discount, then click Calculate.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>What is a Discount?</h2>
+
+    <p>
+      A discount is a reduction from the original price of a product
+      or service. Discounts are commonly shown as a percentage.
+    </p>
+
+    <h2>How to Calculate Discount?</h2>
+
+    <p>
+      <strong>Discount Amount = Original Price × Discount Percentage ÷ 100</strong>
+    </p>
+
+    <p>
+      <strong>Final Price = Original Price − Discount Amount</strong>
+    </p>
+
+    <h2>Example</h2>
+
+    <p>
+      If a product costs ₹1,000 and has a 20% discount, the discount
+      amount is ₹200 and the final price is ₹800.
+    </p>
+
+    <h2>Important Note</h2>
+
+    <p>
+      This calculator provides estimates for general informational
+      purposes. Taxes, delivery charges and other fees may affect the
+      final amount paid.
+    </p>
+
+  </div>
+
+  <div class="home">
+    <a href="index.html">← Back to HisabTools24 Home</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 HisabTools24 • Free Online Calculators
+</footer>
+
+<script>
+function calculateDiscount() {
+
+  let price = Number(document.getElementById("price").value);
+  let discount = Number(document.getElementById("discount").value);
+
+  if (price < 0 || discount < 0 || discount > 100) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter valid values.</p>";
+    return;
+  }
+
+  let discountAmount = price * discount / 100;
+  let finalPrice = price - discountAmount;
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>Discount Amount:</strong> ₹${discountAmount.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+
+    <p><strong>You Save:</strong> ₹${discountAmount.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+
+    <p><strong>Final Price:</strong> ₹${finalPrice.toLocaleString("en-IN", {maximumFractionDigits: 2})}</p>
+  `;
+}
+
+calculateDiscount();
+</script>
+
+</body>
+</html>
