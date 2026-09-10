@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Age Calculator - Calculate Your Age | HisabTools24</title>
+  <meta name="description" content="Free Age Calculator to calculate your exact age in years, months and days from your date of birth.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .result p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .home {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Age Calculator</h1>
+  <p>Calculate your exact age in years, months and days</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free Age Calculator</h2>
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob">
+
+    <label for="today">Calculate Age On</label>
+    <input type="date" id="today">
+
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <div class="result" id="result">
+      Enter your date of birth and click Calculate.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>How Does the Age Calculator Work?</h2>
+
+    <p>
+      This calculator calculates your age based on your date of birth
+      and the date on which you want to calculate your age.
+    </p>
+
+    <h2>What Does It Show?</h2>
+
+    <p>
+      The calculator shows your completed age in years, months and
+      days. It can be useful for checking your age for applications,
+      forms, birthdays and other everyday purposes.
+    </p>
+
+    <h2>Important Note</h2>
+
+    <p>
+      The result is calculated from the dates entered by the user.
+      Make sure the date of birth is entered correctly.
+    </p>
+
+  </div>
+
+  <div class="home">
+    <a href="index.html">← Back to HisabTools24 Home</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 HisabTools24 • Free Online Calculators
+</footer>
+
+<script>
+const todayInput = document.getElementById("today");
+const now = new Date();
+
+todayInput.value =
+  now.getFullYear() + "-" +
+  String(now.getMonth() + 1).padStart(2, "0") + "-" +
+  String(now.getDate()).padStart(2, "0");
+
+function calculateAge() {
+
+  const dobValue = document.getElementById("dob").value;
+  const todayValue = document.getElementById("today").value;
+
+  if (!dobValue || !todayValue) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter both dates.</p>";
+    return;
+  }
+
+  const dob = new Date(dobValue + "T00:00:00");
+  const end = new Date(todayValue + "T00:00:00");
+
+  if (dob > end) {
+    document.getElementById("result").innerHTML =
+      "<p>Date of birth cannot be after the calculation date.</p>";
+    return;
+  }
+
+  let years = end.getFullYear() - dob.getFullYear();
+  let months = end.getMonth() - dob.getMonth();
+  let days = end.getDate() - dob.getDate();
+
+  if (days < 0) {
+    months--;
+
+    const previousMonth = new Date(
+      end.getFullYear(),
+      end.getMonth(),
+      0
+    );
+
+    days += previousMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>Your Age:</strong> ${years} years, ${months} months and ${days} days</p>
+  `;
+}
+</script>
+
+</body>
+</html>
